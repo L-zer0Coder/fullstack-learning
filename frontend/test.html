@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zeroStart</title>
+</head>
+<body>
+    hello h5!
+    <br>
+    这里没注释，qwq
+    <h1>这是1号</h1>
+    <h2>这是2号</h2>
+    <h3>这是3号</h3>
+    <h4>这是4号</h4>
+    <h5>这是5号</h5>
+    <h6>这是6号</h6>
+    这没号
+    <h1>一号标题</h1>
+    <p>第一段</p>
+    <p>再来一段</p>
+    <p>再加一段</p>
+    <!-- 这里是注释，hh -->
+    咕咕嘎嘎
+    <br>
+    咕咕
+    <br>
+    嘎嘎
+    <br>
+    <hr>咕咕嘎嘎
+    <br>
+    <strong>这是strong加粗</strong>
+    <b>这是b加粗</b>
+    <em>这是em倾斜</em>
+    <i>这是i倾斜</i>
+    <ins>这是ins下划线</ins>
+    <u>这是u下划线</u>
+    <del>这是del删除线</del>
+    <s>这是s删除线</s>
+    <br>
+    这是一张图片
+    <br>
+    <img src="img.png" alt="地震报告" title="祝你早上好、中午好、晚上好！">
+    <img src="img.png" alt="地震报告" width="100">
+    <br>
+    <!-- 1.jpg -->
+    <img src="./imgTest/1.jpg" alt="" width="200">
+    <!-- 2.jpg -->
+    <img src="../img.png" alt="" width="200">
+    <!-- 3.png -->
+    <img src="./imgTest/3.png" alt="" width="200">
+    <img src="D:\fullstack-learning\frontend\imgTest\2.jpg" alt="" width="200">
+    <img src="D:/fullstack-learning/frontend/imgTest/2.jpg" alt="" width="200">
+    <img src="https://numpy.org/doc/stable/_static/numpylogo.svg" alt="">
+
+    <a href="https://www.luogu.com.cn/training/list?type=srqc-jc">洛谷题单广场</a>
+    <a href="./me.html" target="_blank">跳转到me</a>
+    <a href="#">十年后</a>
+    <audio src="./夏季八弹(20260701晚).m4a" controls loop autoplay>童话镇20260701晚</audio>
+    <video src="./纸硬币.mp4" controls ></video>
+    <ul>
+        <li>咕咕</li>
+        <li>嘎嘎</li>
+        <li>咕咕嘎嘎</li>
+    </ul>
+    <ol>
+        <li>咕咕</li>
+        <li>嘎嘎</li>
+        <li>咕咕嘎嘎</li>
+    </ol>
+    <dl>
+        <dt>姓名</dt>
+        <dd>凉州词</dd>
+        <dd>顾咕嘎</dd>
+        <dt>性别</dt>
+        <dd>男</dd>
+        <dt>民族</dt>
+        <dd>汉</dd>
+    </dl>
+    <table border="3">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>语文</th>
+                <th>数学</th>
+                <th>总分</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张飒</td>
+                <td>99</td>
+                <td rowspan="2">100</td>
+                <td>199</td>
+            </tr>
+            <tr>
+                <td>丽斯</td>
+                <td>98</td>
+                <!-- <td>100</td> -->
+                <td>198</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>总结</td>
+                <td colspan="3">全市第一</td>
+                <!-- <td>全市第一</td>
+                <td>全市第一</td> -->
+            </tr>
+        </tfoot>
+        
+    </table>
+    文本框：<input type="text">
+    <br><br>
+    密码框：<input type="password">
+    <br><br>
+    单选框：<input type="radio">
+    <br><br>
+    多选框：<input type="checkbox">
+    <br><br>
+    文件上传：<input type="file">
+    <br><br>
+    文本框: <input type="text" placeholder="请输入用户名">
+    <br><br>
+    密码框: <input type="password" placeholder="请输入密码">
+    <br><br>
+    我是：
+    <input type="radio" name="gender1">GG
+    <input type="radio" name="gender1" checked>MM
+    <br><br>
+    上传多个文件:
+    <input type="file" multiple>
+    <br><br>
+    兴趣爱好:
+    <input type="checkbox">数学
+    <input type="checkbox">英语
+    <input type="checkbox" checked>编程
+    <input type="checkbox">锻炼
+    <br><br>
+    城市:
+    <select name="" id=""> <!--这两个属性是发送数据用的，目前暂时用不到-->
+        <option value="">北京</option> <!-- value也是 -->
+        <option value="">上海</option>
+        <option value="" selected>南京</option>
+        <option value="">苏州</option>
+    </select>
+    <br><br>
+    <textarea name="" id="">请输入评论</textarea>
+    <!-- 右下角有拖拽功能，实际应用中会禁用 -->
+    <!-- 并且虽然有row、col属性，但一般都用CSS设置尺寸 -->
+    <br><br>
+    我是：
+    <input type="radio" name="gender2" id="man"><label for="man">男</label>
+    <input type="radio" name="gender2" checked id="woman"><label for="woman">女</label>
+    <br><br>
+    我是：
+    <label ><input type="radio" name="gender3">GG</label>
+    <label ><input type="radio" name="gender3" checked>MM</label>
+    <!-- name不能都写gender，不然会默认同一组，进而影响单选性质与默认选项 -->
+    <br><br>
+    <form action="">
+        文本框: <input type="text" placeholder="请输入用户名">
+        <br><br>
+        密码框: <input type="password" placeholder="请输入密码">
+        <!-- 省略type 则默认submit -->
+        <br><br>
+        <button type="submit">提交</button>
+        <button type="reset">重置</button>
+        <button type="button">按钮</button>
+    </form>
+    <br><br>
+    <!-- 大盒子 -->
+    <div>这是div标签</div>
+    <div>这是div标签</div>
+    <br><br>
+    <!-- 小盒子 -->
+    <span>这是span标签</span>
+    <span>这是span标签</span>
+    你好 哈哈 11 嘻嘻 &nbsp;&nbsp;&nbsp; 11111 < p >
+    <br>
+    &lt;p&gt;
+    <br><br>
+    <ul>
+        <li>
+            <img src="./imgTest/3.png" title="挖到钻石" alt="挖到钻石" width="200">
+            <h2>凉州词挖矿挖到钻石</h2>
+        </li>
+        <li>
+            <img src="./冰淇淋.jpg" title="吃冰淇淋" alt="" width="200" height="100">
+            <h2>凉州词晚上吃蓝莓冰淇淋</h2>
+        </li>
+        <li>
+            <img src="./meHead.jpg" title="一个人的头像" alt="" width="200">
+            <h2>栀子花没给凉州词提供图片，凉州词自己随便找了一个</h2>
+        </li>
+        <li>
+            <img src="./小猫.jpg" title="小猫" alt="" width="200">
+            <h2>栀子花补救了小猫</h2>
+        </li>
+    </ul>
+    <br><br>
+    <h1>注册信息</h1>
+    <form action="">
+        <h2>个人信息</h2>
+        <label >姓名: <input type="text" placeholder="请输入真实姓名"></label>    
+        <br><br>
+        <label >密码: <input type="password" placeholder="请输入密码"></label>    
+        <br><br>
+        <label >确认密码: <input type="password" placeholder="请再次输入密码"></label>    
+        <br><br>
+        性别:
+        <!-- for需要跟id对应，没有对应的话需要删掉 -->
+        <label ><input type="radio" name="gender4" checked>男</label>    
+        <label ><input type="radio" name="gender4" >女</label>        
+        <br><br>
+        城市:
+        <select name="" id="">
+            <option value="">北京</option>
+            <option value="">苏州</option>
+            <option value="" selected>南京</option>
+            <option value="">上海</option>
+            <option value="">无锡</option>
+            <option value="">泰州</option>
+        </select>
+        <br>
+        <h2>教育经历</h2>
+        最高学历:
+        <select name="" id="">
+            <option value="">小学</option>
+            <option value="">初中</option>
+            <option value="">高中</option>
+            <option value="">专科</option>
+            <option value="">本科</option>
+            <option value="">硕士</option>
+            <option value="">博士</option>
+        </select>
+        <br><br>
+        学校名称:
+        <input type="text">
+        <br><br>
+        所学专业:
+        <input type="text">
+        <br><br>
+        <label >在校时间:</label>
+        <br>
+        <select name="" id="">
+            <option value="">2025</option>
+            <option value="">2024</option>
+            <option value="">2023</option>
+            <option value="">2022</option>
+            <option value="">2021</option>
+            <option value="">2020</option>
+            <option value="">2019</option>
+        </select>
+        ---
+        <select name="" id="">
+            <option value="">2029</option>
+            <option value="">2028</option>
+            <option value="">2027</option>
+            <option value="">2026</option>
+            <option value="">2025</option>
+            <option value="">2024</option>
+            <option value="">2023</option>
+        </select>
+        <br><br>
+        自我介绍:
+        <textarea name="" id=""></textarea>
+        <br><br>
+        <input type="checkbox">已阅读并同意以下协议:
+        <ul>
+            <li>
+                <a href="#">《用户服务协议》</a>
+            </li>
+            <li>
+                <a href="#">《隐私政策》</a>
+            </li>
+        </ul>
+        <br>
+        <button type="submit">注册</button>
+        <button type="reset">重新填写</button>
+        
+    </form>
+</body>
+</html>
