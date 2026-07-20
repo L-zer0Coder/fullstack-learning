@@ -413,3 +413,242 @@ p {
 ![frontend/CSS/调试2.png](调试2.png)
 复选框代表正在生效，可以取消勾选
 刷新后均会重置
+# 综合案例
+网页制作思路：
+- 从上到下，先整体再局部
+- 先标签，再CSS美化
+# 复合选择器
+定义：由两个或多个基础选择器，通过不同的方式组合而成
+作用：更准确、更高效的选择目标元素（标签）
+## 后代选择器
+选中某元素的 **所有** 后代元素
+选择器写法：`父选择器 子选择器{CSS属性}`,父子选择器之间用空格隔开
+```html
+    <style>
+        div span{
+            color: aquamarine;
+        }
+
+    </style>
+</head>
+<body>
+    <span>span标签</span>
+    <div>
+        <span>div子</span>
+        <p>
+            <span>div孙</span>
+        </p>
+    </div>
+</body>
+```
+## 子代选择器
+选中某元素的子代元素（最近的子级）
+选择器写法：`父选择器>子选择器{CSS属性}`,父子选择器之间用`>`隔开
+```html
+    <style>
+        div>span{
+            color: aquamarine;
+        }
+
+    </style>
+</head>
+<body>
+    <span>span标签</span>
+    <div>
+        <span>div子</span>
+        <p>
+            <span>div孙</span>
+        </p>
+    </div>
+</body>
+```
+## 并集选择器
+选中多组标签设置相同的样式
+选择器写法：`选择器1,选择器2,...,选择器n{CSS属性}`,选择器之间用`,`隔开
+*建议逗号后换行，结构更清晰*
+```html
+    <style>
+        div,
+        span,
+        p {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>这是div标签</div>
+    <p>这是p标签</p>
+    <span>这是span标签</span>
+</body>
+```
+## 交集选择器-了解
+选中同时满足多个条件的元素
+选择器写法：`选择器1选择器2{CSS属性}`,选择器之间连写，没有任何符号
+**注意：如果交集选择器中有标签选择器，标签选择器必须书写在最前面**
+```html
+    <style>
+        p.box{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+     <p class="box">p标签,使用了类选择器</p>
+    <p>普通p标签</p>
+    <div class="box">div标签,使用了类选择器</div>
+</body>
+<!-- 交集：满足是p且用了box类选择器 -->
+```
+# 伪类选择器
+伪类表示元素状态，选中元素的某个状态设置样式
+- 鼠标悬停状态：`选择器:hover{CSS属性}`(任何标签均可使用)
+```html
+    <style>
+        a {
+            color: aqua;
+            text-decoration: none;
+        }
+        a:hover {
+            color: blanchedalmond;
+            text-decoration: underline;
+        }
+        .box:hover{
+            color: rgb(44, 106, 160);
+        }
+    </style>
+</head>
+<body>
+    <a href="#">a标签</a>
+    <div class="box">div标签</div>
+</body>
+```
+## 伪类-超链接（拓展）
+超链接一共有四个状态：
+- `:link`:访问前
+- `:visited`:访问后
+- `:hover`:鼠标悬停
+- `:active`点击时(激活)
+**提示：如果要给超链接设置以上四个状态，需要按LVHA的顺序书写**
+```html
+    <style>
+        a:link{
+            color: rgb(183, 123, 40);
+        }
+        a:visited{
+            color: green;
+        }
+        a:hover{
+            color: rgb(48, 162, 105);
+        }
+        a:active{
+            color: rgb(162, 85, 127);
+        }
+    </style>
+</head>
+<body>
+    <a href="#">a 标签</a>
+</body>
+<!-- 有一点需要注意：一个链接点击后默认已点击，则不可回到初始状态了 -->
+```
+**工作中，一个a标签选择器设置超链接的样式:hover状态设置（其他一般不设置）**
+# CSS特性
+CSS特性：化简代码/定位问题/并解决问题
+## 继承性
+子级默认继承父级的**文字控制属性**
+```html
+    <style>
+        body{
+            font-size: 30px;
+            color: #09cfab;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- 当标签自己有样式（默认或设置）时，生效自己的样式 -->
+    <div>div标签</div>
+    <p>p标签</p>
+    <span>span标签</span>
+    <a href="#">a标签</a> <!--颜色没有继承，其他继承了-->
+    <h1>h1标签</h1> <!--只继承了颜色-->
+</body>
+```
+## 层叠性
+特点：
+- 相同的属性会覆盖：后面的CSS属性覆盖前面的CSS属性
+- 不同的属性会叠加：不同的CSS属性都生效
+```html
+    <style>
+        div {
+            color: red;
+            font-weight: 700;
+        }
+        div {
+            color: bisque;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>div标签</div>
+</body>
+```
+## 优先级
+也叫权重，当一个标签使用了多个选择器时，基于不同种类的选择器的匹配规则
+公式：`通配符选择器<标签选择器<类选择器<id选择器<行内样式<!important`
+*选中标签的范围越大，优先级越低*
+```html
+    <style>
+        div {
+            color: aqua;
+        }
+        * {
+            color: red;
+        }
+        .box1 {
+            color: rgb(148, 105, 48);
+        }
+        #box2 {
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div>div标签</div>
+    <div class="box1">div标签</div>
+    <div class="box1" id="box2">div标签</div>
+    <div class="box1" id="box2" style="color: brown;">div标签</div>
+</body>
+```
+**提权至最高级（慎用）**
+```html
+<style>
+        div {
+            color: aqua;
+        }
+        * {
+            color: red !important;
+        }
+        .box1 {
+            color: rgb(148, 105, 48);
+        }
+        #box2 {
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div>div标签</div>
+    <div class="box1">div标签</div>
+    <div class="box1" id="box2">div标签</div>
+    <div class="box1" id="box2" style="color: brown;">div标签</div>
+</body>
+```
+## 优先级-叠加计算规则
+叠加计算：如果是复合选择器，则需要权重叠加计算
+公式：（每一级之间不存在进位）
+（行内样式，id选择器个数，类选择器个数，标签选择器个数）
+规则：
+- 从左向右一次比较选个数，同一级个数多的优先级高，如果个数相同，则向后比较
+- `!important`权重最高
+- 继承权重最低
