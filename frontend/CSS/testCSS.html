@@ -5,16 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /* 块级独占一行，宽度默认是父级的100%,加宽高会生效 */
+        .div1 {
+            background-color: brown;
+        }
+        .div2 {
+            background-color: orange;
+        }
         div {
-            background-color: #fff;
-            width: 400px;
-            height: 400px;
-            background-image: url(./噜噜.gif);
+            width: 100px;
+            height: 100px;
+            /* display: inline-block; */
+            display: inline;
+        }
+        /* 行内：一行共存多个；尺寸由内容撑开 ;加宽高不实现*/
+        span {
+            width: 200px;
+            height: 200px;
+            /* display: block; */
+            display: inline-block;
+        }
+        /* 背景色是生效的 */
+        .span1 {
+            background-color: red;
+        }
+        .span2 {
+            background-color: orange;
+        }
+        /* 行内块：不换行，一行共存多个；默认尺寸由内容撑开；加宽高会生效 */
+        img {
+            width: 200px;
+            height: 200px;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <!-- 浏览器中背景图默认平铺效果，这里会复制来铺满盒子 -->
-    <div>噜啦啦噜啦啦噜啦噜啦嘞</div>
+    <!-- 块元素 -->
+     <div class="div1">div标签1</div>
+     <div class="div2">div标签2</div>
+     <!-- 行内元素 -->
+    <span class="span1">span111111</span>
+    <span class="span2">span2</span>
+    <!-- 行内块元素 -->
+     <img src="./噜噜.gif" alt="">
+     <img src="./噜噜.gif" alt="">
 </body>
 </html>

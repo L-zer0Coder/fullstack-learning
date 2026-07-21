@@ -792,4 +792,356 @@ background-color: #fff;
 - `repeat`:平铺（默认效果）
 - `repeat-x`:水平方向平铺
 - `repeat-y`:垂直方向平铺
+```html
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            background-image: url(./噜噜.gif);
+            /* 不平铺 显示在盒子左上角 */
+            background-repeat: no-repeat;
+            /* 默认平铺效果 */
+            /* background-repeat: repeat; */
+            /* 横向平铺 */
+            /* background-repeat: repeat-x; */
+            /* 竖向平铺 */
+            /* background-repeat: repeat-y; */
+        }
+    </style>
+</head>
+<body>
+    <div>div标签</div>
+</body>
+```
+## 背景图位置
+属性名：`background-position`(`bgp`)
+属性值：`水平方向位置 垂直方向位置`(空格隔开)
+- 关键字
+  - `left`:左侧
+  - `right`:右侧
+  - `center`:居中
+  - `top`:顶部
+  - `bottom`:底部
+- 坐标(数字+**px**,正负都可以)(注意单位)
+**可以都是关键词或坐标，也可以混用**
+```html
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            background-image: url(./噜噜.gif);
+            background-repeat: no-repeat;
+            /* background-position: right top; */
+            /* background-position: right bottom; */
+            /* background-position: 0 0; */
+            /* background-position: 123px 55px; */
+            /* background-position: -111px -111px; */
+            /* 水平：正数向右，负数向左 */
+            /* 垂直：正数向下，负数向上 */
+            background-position: 79px bottom;
+        }
+    </style>
+</head>
+<body>
+    <div>div标签</div>
+</body>
+```
+***提示：***
+- 关键字取值方式写法，可以颠倒取值顺序(因为关键字字义已经表明含义)
+- 可以只写一个关键字，另一个方向默认为居中；数字只写一个值表示水平方向，垂直方向为居中
+```html
+    <style>
+        div {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            background-image: url(./噜噜.gif);
+            background-repeat: no-repeat;
+            /* background-position: top right; */
+            /* background-position: bottom; */
+            background-position: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div>div标签</div>
+</body>
+```
+## 背景图缩放
+属性名：`background-size`(`bgz`)
+常用属性值：
+- 关键字
+  - `cover`:等比例缩放背景图片以完全覆盖背景区，可能背景图片部分看不见
+  - `contain`:等比例缩放背景图片以完全装入背景区，可能背景区部分空白
+```html
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            background-color: pink;
+            background-image: url(./噜噜.gif);
+            background-repeat: no-repeat;
+            /* 使图片尽可能占据背景 */
+            /* background-size: contain; */
+            /* 使图片覆盖住背景 */
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div>div标签</div>
+</body>
+```
+- 百分比:根据盒子尺寸计算图片大小
+```html
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            background-color: pink;
+            background-image: url(./噜噜.gif);
+            background-repeat: no-repeat;
+            /* 图片宽度与盒子宽度一样，高度按比例缩放 */
+            background-size: 100%;
 
+        }
+    </style>
+</head>
+<body>
+    <div>div标签</div>
+</body>
+```
+- `数字+单位(例如:px)`
+```html
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            background-color: pink;
+            background-image: url(./噜噜.gif);
+            background-repeat: no-repeat;
+            background-size: 420px 110px;
+        }
+    </style>
+</head>
+<body>
+    <div>div标签</div>
+</body>
+```
+## 背景图固定
+作用:背景不会随着元素的内容滚动而滚动
+属性名：`background-attachment`(`bga`)
+属性值：`fixed`
+```html
+    <style>
+        body {
+            background-image: url(./噜噜.gif);
+            background-repeat: no-repeat;
+            background-position: center top;
+
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+    <p>测试文字，让浏览器可滚动</p>
+</body>
+```
+## 背景符合复合属性
+属性名：`background`(`bg`)
+属性值:`背景色 背景图 背景图平铺方式 背景图位置/背景图缩放 背景图固定`(空格隔开各个*属性值*，不区分顺序)
+```html
+    <style>
+        div {
+            width: 600px;
+            height: 400px;
+            background: pink url(./噜噜.gif) no-repeat right bottom/42%;
+        }
+    </style>
+</head>
+<body>
+    <div>div标签</div>
+</body>
+```
+# 显示模式
+显示模式：标签（元素）的显示方式
+作用：布局网页时，根据标签的显示模式选择合适的标签摆放内容
+- 块级元素
+  - 独占一行
+  - 宽度默认是父级的100%（适应父级）
+  - 添加宽高属性生效
+- 行内元素
+  - 一行可以显示多个
+  - 设置宽高属性不生效
+  - 宽高尺寸由内容撑开
+- 行内块元素
+  - 一行可以显示多个
+  - 设置宽高属性生效
+  - 宽高尺寸也可以由内容撑开
+```html
+    <style>
+        /* 块级独占一行，宽度默认是父级的100%,加宽高会生效 */
+        .div1 {
+            background-color: brown;
+        }
+        .div2 {
+            background-color: orange;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+        }
+        /* 行内：一行共存多个；尺寸由内容撑开 ;加宽高不实现*/
+        span {
+            width: 200px;
+            height: 200px;
+        }
+        /* 背景色是生效的 */
+        .span1 {
+            background-color: red;
+        }
+        .span2 {
+            background-color: orange;
+        }
+        /* 行内块：不换行，一行共存多个；默认尺寸由内容撑开；加宽高会生效 */
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 块元素 -->
+     <div class="div1">div标签1</div>
+     <div class="div2">div标签2</div>
+     <!-- 行内元素 -->
+    <span class="span1">span111111</span>
+    <span class="span2">span2</span>
+    <!-- 行内块元素 -->
+     <img src="./噜噜.gif" alt="">
+     <img src="./噜噜.gif" alt="">
+</body>
+```
+# 转换显示模式
+属性名：`display`
+属性值：
+- `block`:块级
+- `inline-block`:行内块
+- `inline`:行内
+```html
+    <style>
+        /* 块级独占一行，宽度默认是父级的100%,加宽高会生效 */
+        .div1 {
+            background-color: brown;
+        }
+        .div2 {
+            background-color: orange;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            /* display: inline-block; */
+            display: inline;
+        }
+        /* 行内：一行共存多个；尺寸由内容撑开 ;加宽高不实现*/
+        span {
+            width: 200px;
+            height: 200px;
+            /* display: block; */
+            display: inline-block;
+        }
+        /* 背景色是生效的 */
+        .span1 {
+            background-color: red;
+        }
+        .span2 {
+            background-color: orange;
+        }
+        /* 行内块：不换行，一行共存多个；默认尺寸由内容撑开；加宽高会生效 */
+        img {
+            width: 200px;
+            height: 200px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 块元素 -->
+     <div class="div1">div标签1</div>
+     <div class="div2">div标签2</div>
+     <!-- 行内元素 -->
+    <span class="span1">span111111</span>
+    <span class="span2">span2</span>
+    <!-- 行内块元素 -->
+     <img src="./噜噜.gif" alt="">
+     <img src="./噜噜.gif" alt="">
+</body>
+```
