@@ -652,3 +652,144 @@ CSS特性：化简代码/定位问题/并解决问题
 - 从左向右一次比较选个数，同一级个数多的优先级高，如果个数相同，则向后比较
 - `!important`权重最高
 - 继承权重最低
+```html
+    <title>权重叠加·第一题</title>
+    <style>
+        /* 0,0,2,1 */
+        .c1 .c2 div {
+            color: blue;
+        }
+        /* 0,1,0,1 */
+        div #box3 {
+            color: green;
+        }
+        /* 0,1,1,0 */
+        #box1 .c3 {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" class="c1">
+        <div id="box2" class="c2">
+            <div id="box3" class="c3">
+                这行文本是什么颜色？
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+```
+```html
+    <title>权重叠加·第二题·继承</title>
+    <style>
+        div p {
+            color: red;
+        }
+        .father {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <p class="son">
+            文字
+            <!-- 可以继承蓝色，同时被选中了红色，最终取红色 -->
+        </p>
+    </div>
+</body>
+```
+```html
+    <style>
+        #father #son {
+            color: blue;
+        }
+        #father p .c2 {
+            color: black;
+        }
+        div .c1 p .c2 {
+            color: red;
+        }
+        #father {
+            color: green !important;
+        }
+        div#father.c1{
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="father" class="c1">
+        <p id="son" class="c2">
+            这行文本什么颜色?
+        </p>
+    </div>
+</body>
+```
+**工作中一般不会出这种问题**
+# Emment写法
+Emment写法：代码的简写方式，输入缩写vscode会自动生成对应的代码
+- HTML
+  - 类选择器:`标签名.类名`
+    - `p.box`按回车-->`<p class="box"></p>`
+    - 如果直接`.类名`-->`<div class="box"></div>`
+  - id选择器:`标签名#id名`
+    - `p#box`-->`<p id="box"></p>`
+  - 同级标签:`div+p`
+    - `div+p`(加号要显式写出来)-->
+```html
+<div></div>
+<p></p>
+```
+  - 父子级标签:`div>p`
+```html
+<div>
+    <p></p>
+</div>
+```
+- 
+  - 多个相同标签:`span*3` `<span></span><span></span><span></span>`(乘号显示写出)
+  - 有内容的标签:`div{内容}`
+    - `div{你好}`-->`div>你好</div>`
+- CSS(大部分是单词首字母)
+  - `w`-->`width: ;`
+  - `h`-->`height: ;`
+  - `w500`-->`width: 500px;`
+  - `bgc`-->`background-color: #fff;`
+  - `w500+h200+bgc`-->
+
+```css
+width: 500px;
+height: 200px;
+background-color: #fff;
+```
+# 背景属性
+- 背景色:`background-color`
+## 背景图
+网页中，使用背景图实现**装饰性**的图片效果
+属性名：`background-imamg`(简写：`bgi`)
+属性值：`url(背景图url)`
+```html
+    <style>
+        div {
+            background-color: #fff;
+            width: 400px;
+            height: 400px;
+            background-image: url(./噜噜.gif);
+        }
+    </style>
+</head>
+<body>
+    <!-- 浏览器中背景图默认平铺效果，这里会复制来铺满盒子 -->
+    <div>噜啦啦噜啦啦噜啦噜嘞噜</div>
+</body>
+```
+## 背景图平铺方式
+属性名：`background-repeat`(`bgr`)
+属性值
+- `no-repeat`:不平铺
+- `repeat`:平铺（默认效果）
+- `repeat-x`:水平方向平铺
+- `repeat-y`:垂直方向平铺
+
