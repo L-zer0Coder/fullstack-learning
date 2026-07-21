@@ -1095,7 +1095,7 @@ background-color: #fff;
 属性值：
 - `block`:块级
 - `inline-block`:行内块
-- `inline`:行内
+- `inline`:行内(较少用)
 ```html
     <style>
         /* 块级独占一行，宽度默认是父级的100%,加宽高会生效 */
