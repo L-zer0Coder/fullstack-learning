@@ -1145,3 +1145,91 @@ background-color: #fff;
      <img src="./噜噜.gif" alt="">
 </body>
 ```
+# 综合案例一-热词
+```html
+    <style>
+        a {
+            display: block;
+            width: 200px;
+            height: 80px;
+            background-color: #3064bb;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 80px;
+            font-size: 18px;
+        }
+        a:hover {
+            background-color: #608dd9;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">HTML</a>
+    <a href="#">CSS</a>
+    <a href="#">JavaScript</a>
+    <a href="#">Vue</a>
+    <a href="#">React</a>
+</body>
+```
+# 综合案例二-banner效果
+
+### `<img>` 标签 vs `background-image` 区别对比
+
+| 维度 | `<img src="...">` (用 HTML 标签放图) | `background-image: url(...)` (用 CSS 设背景) |
+| :--- | :--- | :--- |
+| **本质** | 它是**网页内容的一部分**。就像在 Word 文档里插入了一张图片。 | 它是**盒子（div）的装饰**。就像给一块木头刷了一层油漆。 |
+| **占位** | 图片本身会**撑开** `div` 的大小。如果不设置宽高，`div` 会被图片撑大。 | 图片**不决定**盒子大小，只是贴在盒子内部。盒子必须自己设置 `width` 和 `height`，否则图片根本看不见。 |
+| **右键保存** | 用户右键点击图片，可以选“保存图片”。 | 用户右键点击背景，无法直接保存图片（除非借助开发者工具）。 |
+| **拉伸/平铺** | 默认按原图比例显示，超出边框或被截断。 | 默认是**平铺（重复）**的，而且充满整个盒子。需要手动加 `background-size: cover;` 来调整。 |
+| **里面的文字** | 图片和文字是并列关系（图在左，字在右，或者图在上面）。 | 背景图在文字**下层**，文字自然悬浮在背景图之上。 |
+
+---
+```html
+    <style>
+        .banner {
+            height: 777px;
+            background-color: #f3f3f4;
+            background-image: url(../HTML/imgTest/3.png);
+            background-repeat: no-repeat;
+            background-position: left bottom;
+
+            /* 文字控制属性可以继承给子集 */
+            text-align: right;
+            color: #dd40a1;
+        }
+        /* 注意写法 */
+        .banner h2 { 
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 100px;
+        }
+        .banner p {
+            font-size: 20px;
+        }
+        .banner a {
+            width: 125px;
+            height: 40px;
+            background-color: red;
+            /* block不行 块独占一行，无法右对齐 */
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .banner a:hover {
+            background-color: #21216d;
+        }
+    </style>
+</head>
+<body>
+    <!-- 布局大区域都用div 故要差异化 -->
+    <div class="banner">
+        <h2>你挖到钻石了！</h2>
+        <p>这里提供专业指导与优质矿洞，快来加入我们吧！</p>
+        <a href="#">点击挖矿</a>
+    </div>
+</body>g
+```

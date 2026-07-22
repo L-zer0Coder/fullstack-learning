@@ -5,50 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* 块级独占一行，宽度默认是父级的100%,加宽高会生效 */
-        .div1 {
-            background-color: brown;
+        .banner {
+            height: 777px;
+            background-color: #f3f3f4;
+            background-image: url(../HTML/imgTest/3.png);
+            background-repeat: no-repeat;
+            background-position: left bottom;
+
+            /* 文字控制属性可以继承给子集 */
+            text-align: right;
+            color: #dd40a1;
         }
-        .div2 {
-            background-color: orange;
+        /* 注意写法 */
+        .banner h2 { 
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 100px;
         }
-        div {
-            width: 100px;
-            height: 100px;
-            /* display: inline-block; */
-            display: inline;
+        .banner p {
+            font-size: 20px;
         }
-        /* 行内：一行共存多个；尺寸由内容撑开 ;加宽高不实现*/
-        span {
-            width: 200px;
-            height: 200px;
-            /* display: block; */
-            display: inline-block;
-        }
-        /* 背景色是生效的 */
-        .span1 {
+        .banner a {
+            width: 125px;
+            height: 40px;
             background-color: red;
+            /* block不行 块独占一行，无法右对齐 */
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
         }
-        .span2 {
-            background-color: orange;
-        }
-        /* 行内块：不换行，一行共存多个；默认尺寸由内容撑开；加宽高会生效 */
-        img {
-            width: 200px;
-            height: 200px;
-            display: block;
+        .banner a:hover {
+            background-color: #21216d;
         }
     </style>
 </head>
 <body>
-    <!-- 块元素 -->
-     <div class="div1">div标签1</div>
-     <div class="div2">div标签2</div>
-     <!-- 行内元素 -->
-    <span class="span1">span111111</span>
-    <span class="span2">span2</span>
-    <!-- 行内块元素 -->
-     <img src="./噜噜.gif" alt="">
-     <img src="./噜噜.gif" alt="">
+    <!-- 布局大区域都用div 故要差异化 -->
+    <div class="banner">
+        <h2>你挖到钻石了！</h2>
+        <p>这里提供专业指导与优质矿洞，快来加入我们吧！</p>
+        <a href="#">点击挖矿</a>
+    </div>
 </body>
 </html>
